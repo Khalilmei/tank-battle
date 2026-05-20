@@ -351,8 +351,8 @@ class Tank {
   shoot() {
     if (this.shootCooldown > 0) return null;
     this.shootCooldown = this.shootDelay;
-    const bx = this.x + dirDx[this.dir] * (this.size / 2 + 4);
-    const by = this.y + dirDy[this.dir] * (this.size / 2 + 4);
+    const bx = this.x + dirDx[this.dir] * (this.size / 2 + 2);
+    const by = this.y + dirDy[this.dir] * (this.size / 2 + 2);
     return new Bullet(bx, by, this.dir, this.isPlayer);
   }
 
@@ -361,7 +361,7 @@ class Tank {
     ctx.translate(this.x, this.y);
 
     // 旋转角度
-    const angles = [-Math.PI / 2, 0, Math.PI / 2, Math.PI];
+    const angles = [0, Math.PI / 2, Math.PI, -Math.PI / 2];
     ctx.rotate(angles[this.dir]);
 
     const s = this.size / 2;
